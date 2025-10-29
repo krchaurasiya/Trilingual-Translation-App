@@ -1,0 +1,102 @@
+Trilingual Translation Web App (Portuguese -> English -> Konkani)
+
+This project is a web application designed to translate text from Portuguese to English, and subsequently from English to Konkani. It provides a user-friendly interface for both direct text input and document uploads (.docx, .pdf).
+
+Project Structure
+
+The project follows a standard Flask application structure:
+
+/translation_web_app
+├── /static
+│   ├── /css
+│   │   └── style.css      # Custom stylesheets
+│   └── /js
+│       └── script.js      # Custom JavaScript
+├── /templates
+│   ├── index.html         # Main page with input form
+│   └── results.html       # (Optional) Page to display results
+├── /models
+│   ├── portuguese_to_english_model/  # Directory for the PT-EN model files
+│   └── english_to_konkani_model/     # Directory for the EN-KOK model files
+├── app.py                 # Main Flask application file
+├── requirements.txt       # Python dependencies
+└── README.md              # This file
+
+
+Setup and Installation
+
+1. Prerequisites
+
+Python 3.8+
+
+pip (Python package installer)
+
+2. Clone the Repository
+
+git clone [https://github.com/your-username/translation_web_app.git](https://github.com/your-username/translation_web_app.git)
+cd translation_web_app
+
+
+3. Create a Virtual Environment
+
+It is highly recommended to use a virtual environment to manage project dependencies.
+
+python -m venv venv
+
+
+4. Activate the Virtual Environment
+
+On Windows (Command Prompt or PowerShell):
+
+.\venv\Scripts\activate
+
+
+On Mac/Linux:
+
+source venv/bin/activate
+
+
+After activation, you will see (venv) at the beginning of your command prompt line.
+
+5. Install Dependencies
+
+Install all the required Python packages using the requirements.txt file.
+
+pip install -r requirements.txt
+
+
+6. Download NLP Models
+
+The translation models are not included in this repository due to their size. You will need to download them.
+
+Portuguese to English Model:
+We use a pre-trained model from the Hugging Face model hub. The transformers library will automatically download and cache the model on first run. The model used is Helsinki-NLP/opus-mt-pt-en.
+
+English to Konkani Model:
+As of now, high-quality pre-trained models for English-to-Konkani are not readily available. You would need to:
+
+Find or create a parallel corpus (a collection of texts in both English and Konkani).
+
+Train a new translation model using a framework like MarianMT or fine-tune a multilingual model like T5.
+
+Place the trained model files inside the /models/english_to_konkani_model/ directory.
+
+Update the model path in app.py to point to your local model.
+
+Usage
+
+Run the Flask Application:
+
+python app.py
+
+
+Access the Web App:
+Open your web browser and navigate to http://127.0.0.1:5000.
+
+Translate Text:
+
+Direct Input: Type or paste Portuguese text into the text area and click "Translate".
+
+Document Upload: Click the "Upload Document" tab, select a .docx or .pdf file, and click "Translate".
+
+The application will process the text through the two-step translation pipeline and display the final Konkani output.
