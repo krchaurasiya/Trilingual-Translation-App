@@ -1,0 +1,18 @@
+Web Framework
+
+Flask==2.2.2
+
+NLP and Machine Learning
+
+transformers==4.24.0
+torch==1.13.0
+sentencepiece==0.1.97
+
+Document Processing
+
+python-docx==0.8.11
+PyPDF2==3.0.1
+
+Utilities
+
+gunicorn==20.1.0
